@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xazhao.demo.mapper.HllcDocLayoutFieldMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xazhao.demo.entity.HllcDocLayoutField">
+        <result column="id" property="id"/>
+        <result column="tab_id" property="tabId"/>
+        <result column="column_name" property="columnName"/>
+        <result column="description" property="description"/>
+        <result column="data_type" property="dataType"/>
+        <result column="input_mode_display" property="inputModeDisplay"/>
+        <result column="validation_type_display" property="validationTypeDisplay"/>
+        <result column="default_value" property="defaultValue"/>
+        <result column="help" property="help"/>
+        <result column="format" property="format"/>
+        <result column="placeholder" property="placeholder"/>
+        <result column="clear_button" property="clearButton"/>
+        <result column="min_length" property="minLength"/>
+        <result column="max_length" property="maxLength"/>
+        <result column="pattern" property="pattern"/>
+        <result column="restrict_input" property="restrictInput"/>
+        <result column="currency" property="currency"/>
+        <result column="lookup_code" property="lookupCode"/>
+        <result column="select_box_url" property="selectBoxUrl"/>
+        <result column="expand_field" property="expandField"/>
+        <result column="lov_code" property="lovCode"/>
+        <result column="bind" property="bind"/>
+        <result column="cascade_id" property="cascadeId"/>
+        <result column="format_cascade_flag" property="formatCascadeFlag"/>
+        <result column="object_version_number" property="objectVersionNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+        <result column="seq" property="seq"/>
+        <result column="width" property="width"/>
+        <result column="is_visible" property="isVisible"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        tab_id, column_name, description, data_type, input_mode_display, validation_type_display, default_value,
+        help, format, placeholder, clear_button, min_length, max_length, pattern, restrict_input, currency, lookup_code, select_box_url, expand_field, lov_code, bind, cascade_id, format_cascade_flag, object_version_number, created_by, creation_date, last_updated_by, last_update_date, seq, width, is_visible
+    </sql>
+
+    <select id="selectByTabId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_field
+        where tab_id = #{tabId}
+    </select>
+
+</mapper>

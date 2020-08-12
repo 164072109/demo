@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xazhao.demo.mapper.HllcDocLayoutFieldCascadeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xazhao.demo.entity.HllcDocLayoutFieldCascade">
+        <result column="id" property="id"/>
+        <result column="parameter_field" property="parameterField"/>
+        <result column="record_field" property="recordField"/>
+        <result column="enable_flag" property="enableFlag"/>
+        <result column="object_version_number" property="objectVersionNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+        <result column="field_id" property="fieldId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        parameter_field, record_field, enable_flag, object_version_number, created_by, creation_date, last_updated_by, last_update_date, field_id
+    </sql>
+
+    <select id="selectByFieldId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_field_cas
+        where field_id = #{fieldId}
+    </select>
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xazhao.demo.mapper.HllcDocLayoutTabStatusMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xazhao.demo.entity.HllcDocLayoutTabStatus">
+        <result column="id" property="id"/>
+        <result column="tab_id" property="tabId"/>
+        <result column="status" property="status"/>
+        <result column="type" property="type"/>
+        <result column="layout_id" property="layoutId"/>
+        <result column="object_version_number" property="objectVersionNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        tab_id, status, type, layout_id, object_version_number, created_by, creation_date, last_updated_by, last_update_date
+    </sql>
+
+    <select id="selectByTabId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_tab_status
+        where tab_id = #{tabId}
+    </select>
+
+</mapper>

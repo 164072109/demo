@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xazhao.demo.mapper.HllcDocLayoutButtonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xazhao.demo.entity.HllcDocLayoutButton">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="type" property="type"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="object_version_number" property="objectVersionNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+        <result column="order_num" property="orderNum"/>
+        <result column="button_show_type" property="buttonShowType"/>
+        <result column="button_show_condition" property="buttonShowCondition"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        name, description, type, parent_id, object_version_number, created_by, creation_date, last_updated_by, last_update_date, order_num, button_show_type, button_show_condition
+    </sql>
+
+    <select id="selectByParentId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_button
+        where parent_id = #{parentId} and type = 'COMPONENT'
+    </select>
+
+    <select id="selectByLayoutId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_button
+        where parent_id = #{parentId} and type = 'LAYOUT'
+    </select>
+
+</mapper>

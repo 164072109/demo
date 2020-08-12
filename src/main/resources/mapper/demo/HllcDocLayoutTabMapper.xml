@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xazhao.demo.mapper.HllcDocLayoutTabMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xazhao.demo.entity.HllcDocLayoutTab">
+        <result column="id" property="id"/>
+        <result column="layout_id" property="layoutId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="tab_code" property="tabCode"/>
+        <result column="tab_type" property="tabType"/>
+        <result column="seq" property="seq"/>
+        <result column="base_table" property="baseTable"/>
+        <result column="parent_table" property="parentTable"/>
+        <result column="read_url" property="readUrl"/>
+        <result column="create_url" property="createUrl"/>
+        <result column="update_url" property="updateUrl"/>
+        <result column="destroy_url" property="destroyUrl"/>
+        <result column="row_count" property="rowCount"/>
+        <result column="column_count" property="columnCount"/>
+        <result column="query_tab_code" property="queryTabCode"/>
+        <result column="parent_field" property="parentField"/>
+        <result column="expand_field" property="expandField"/>
+        <result column="primary_key" property="primaryKey"/>
+        <result column="object_version_number" property="objectVersionNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+        <result column="tab_status_key" property="tabStatusKey"/>
+        <result column="description" property="description"/>
+        <result column="deleted_check_api" property="deletedCheckApi"/>
+        <result column="saved_check_api" property="savedCheckApi"/>
+        <result column="server_name" property="serverName"/>
+        <result column="change_query_api" property="changeQueryApi"/>
+        <result column="change_primary_key" property="changePrimaryKey"/>
+        <result column="compare_field" property="compareField"/>
+        <result column="show_fold" property="showFold"/>
+        <result column="default_fold" property="defaultFold"/>
+        <result column="enable_flag" property="enableFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        layout_id, parent_id, tab_code, tab_type, seq, base_table, parent_table, read_url, create_url, update_url, destroy_url, row_count, column_count, query_tab_code, parent_field, expand_field, primary_key, object_version_number, created_by, creation_date, last_updated_by, last_update_date, tab_status_key, description, deleted_check_api, saved_check_api, server_name, change_query_api, change_primary_key, compare_field, show_fold, default_fold, enable_flag
+    </sql>
+
+    <select id="selectByLayoutId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from hllc_doc_layout_tab
+        where layout_id = #{layoutId}
+    </select>
+
+</mapper>
